@@ -1,0 +1,53 @@
+import React from 'react'
+import randomColour from '../colour-gen'
+
+export const Function = () => {
+  return <div style={{ backgroundColor: randomColour() }}>NestedChildren - Function</div>
+}
+
+export const Memo = React.memo(() => {
+  return <div style={{ backgroundColor: randomColour() }}>NestedChildren - Memo</div>
+})
+
+export class Component extends React.Component {
+  render() {
+    return <div style={{ backgroundColor: randomColour() }}>NestedChildren - Component</div>
+  }
+}
+export class PureComponent extends React.PureComponent {
+  render() {
+    return <div style={{ backgroundColor: randomColour() }}>NestedChildren - PureComponent</div>
+  }
+}
+
+const Nester = ({ component: Component }) => <Component />
+
+const reducer = state => state + 1
+
+export default () => {
+  const [count, increment] = React.useReducer(reducer, 0)
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      increment()
+    }, 1000)
+    return () => {
+      clearInterval(interval)
+    }
+  }, [increment])
+  return (
+    <div>
+      <Nester component={Function}>
+        <div />
+      </Nester>
+      <Nester component={Memo}>
+        <div />
+      </Nester>
+      <Nester component={Component}>
+        <div />
+      </Nester>
+      <Nester component={PureComponent}>
+        <div />
+      </Nester>
+    </div>
+  )
+}
