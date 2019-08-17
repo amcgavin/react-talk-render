@@ -23,7 +23,7 @@ export class PureComponent extends React.PureComponent {
 const reducer = state => state + 1
 
 const Renderer = React.memo(({ render }) => (
-  <div style={{ backgroundColor: randomColour(), height: 64 }}>{render()}</div>
+  <div style={{ backgroundColor: randomColour() }}>{render()}</div>
 ))
 
 export default () => {

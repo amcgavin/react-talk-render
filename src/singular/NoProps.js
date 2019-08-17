@@ -35,8 +35,9 @@ export default () => {
   return (
     <div>
       <Function />
-      <Component />
       <Memo />
+      <Component />
+
       <PureComponent />
     </div>
   )

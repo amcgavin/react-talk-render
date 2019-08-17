@@ -22,9 +22,7 @@ export class PureComponent extends React.PureComponent {
 
 const reducer = state => state + 1
 
-const Renderer = ({ render }) => (
-  <div style={{ backgroundColor: randomColour(), height: 64 }}>{render()}</div>
-)
+const Renderer = ({ render }) => <div style={{ backgroundColor: randomColour() }}>{render()}</div>
 
 export default () => {
   const [count, increment] = React.useReducer(reducer, 0)

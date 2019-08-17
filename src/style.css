@@ -1,0 +1,11 @@
+#root div {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#root div div {
+    margin: 25px;
+    width: 100%;
+    height: 100%;
+}
