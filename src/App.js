@@ -1,11 +1,12 @@
 import React from 'react'
 import NoProps from './NoProps'
 import SimpleProps from './SimpleProps'
+import ComplexProps from './ComplexProps'
 
 function App() {
   return (
     <div>
-      <SimpleProps />
+      <ComplexProps />
     </div>
   )
 }
