@@ -1,5 +1,5 @@
 import React from 'react'
-import randomColour from './colour-gen'
+import randomColour from '../colour-gen'
 
 export const Function = () => {
   return <div style={{ backgroundColor: randomColour() }}>NoProps - Function</div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import randomColour from './colour-gen'
+import randomColour from '../colour-gen'
 
 const Function = ({ object, array, func }) => {
   return <div style={{ backgroundColor: randomColour() }}>ComplexProps - Function</div>

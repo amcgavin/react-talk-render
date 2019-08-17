@@ -1,5 +1,5 @@
 import React from 'react'
-import randomColour from './colour-gen'
+import randomColour from '../colour-gen'
 
 const Function = ({ number, string, bool }) => {
   return <div style={{ backgroundColor: randomColour() }}>SimpleProps - Function</div>

@@ -1,7 +1,7 @@
 import React from 'react'
-import NoProps from './NoProps'
-import SimpleProps from './SimpleProps'
-import ComplexProps from './ComplexProps'
+import NoProps from './singular/NoProps'
+import SimpleProps from './singular/SimpleProps'
+import ComplexProps from './singular/ComplexProps'
 
 function App() {
   return (
