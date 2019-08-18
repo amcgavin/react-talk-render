@@ -3,9 +3,17 @@ import { connect, Provider, useDispatch, useSelector } from 'react-redux'
 import randomColour from '../colour-gen'
 import { createStore } from 'redux'
 
+const counts = {
+  Function: 0,
+  Memo: 0,
+  Component: 0,
+  PureComponent: 0,
+}
+
 const Function = () => {
   const otherProp = useSelector(state => state.otherProp)
-  return <div style={{ backgroundColor: randomColour() }}>Redux2 - Function</div>
+  counts.Function += 1
+  return <div style={{ backgroundColor: randomColour() }}>Redux2 - Function {counts.Function}</div>
 }
 
 const Memo = React.memo(() => {
@@ -45,6 +53,8 @@ const reduxStore = createStore((state = initialState, action) => {
 
 const Main = () => {
   const dispatch = useDispatch()
+  useSelector(state => state.count)
+
   React.useEffect(() => {
     const interval = setInterval(() => {
       dispatch({ type: 'count' })

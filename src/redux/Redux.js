@@ -39,7 +39,7 @@ const reduxStore = createStore((state = initialState, action) => {
 
 const Main = () => {
   const dispatch = useDispatch()
-  useSelector(state => state.count, [])
+  useSelector(state => state.count)
   React.useEffect(() => {
     const interval = setInterval(() => {
       dispatch({ type: 'count' })
