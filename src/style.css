@@ -8,5 +8,32 @@
 }
 
 body {
-    background: #444444; /* rgb(50, 41, 49); */
+    background: #444444;
 }
+
+.example-wrapper {
+    display: grid;
+    grid-template-columns: 30% 30%;
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+}
+
+.example-wrapper > div {
+    position: relative;
+    border: 1px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.example-wrapper > div::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.example-wrapper > div > div {
+    margin: auto 0;
+}
+

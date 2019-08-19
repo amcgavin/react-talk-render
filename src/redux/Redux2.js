@@ -13,17 +13,17 @@ const counts = {
 const Function = () => {
   const otherProp = useSelector(state => state.otherProp)
   counts.Function += 1
-  return <div style={{ backgroundColor: randomColour() }}>Redux2 - Function {counts.Function}</div>
+  return <div style={{ backgroundColor: randomColour() }}><div>Redux2 -  Function</div></div>
 }
 
 const Memo = React.memo(() => {
   const otherProp = useSelector(state => state.otherProp)
-  return <div style={{ backgroundColor: randomColour() }}>Redux2 - Memo</div>
+  return <div style={{ backgroundColor: randomColour() }}><div>Redux2 -  Memo</div></div>
 })
 
 class UnconnectedComponent extends React.Component {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}>Redux2 - Component</div>
+    return <div style={{ backgroundColor: randomColour() }}><div>Component</div></div>
   }
 }
 
@@ -31,7 +31,7 @@ const Component = connect(state => ({ otherProp: state.otherProp }))(Unconnected
 
 class UnconnectedPureComponent extends React.PureComponent {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}>Redux2 - PureComponent</div>
+    return <div style={{ backgroundColor: randomColour() }}><div>Redux2 -  PureComponent</div></div>
   }
 }
 
@@ -65,12 +65,12 @@ const Main = () => {
   }, [dispatch])
 
   return (
-    <div>
+    <React.Fragment>
       <Function />
       <Memo />
       <Component />
       <PureComponent />
-    </div>
+    </React.Fragment>
   )
 }
 

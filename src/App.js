@@ -1,19 +1,26 @@
 import React from 'react'
 import './style.css'
-import singular from './singular'
-import redux from './redux'
-import children from './children'
-import renderprops from './renderprops'
+import Singular from './singular'
+import Redux from './redux'
+import Children from './children'
+import Renderprops from './renderprops'
 
 import CodeView from './CodeView'
 
 function App() {
   return (
-    <div className="wrapper">
-      <div className="code-viewer">
-        <CodeView src={redux.Redux2Src} />
+    <React.Fragment>
+      <div className="wrapper">
+        <div className="code-viewer">
+          <CodeView src={Redux.Redux2Src} />
+        </div>
       </div>
-    </div>
+      <div>
+      <div className="example-wrapper">
+        <Redux.Redux2 />
+      </div>
+      </div>
+    </React.Fragment>
   )
 }
 

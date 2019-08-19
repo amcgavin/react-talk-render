@@ -2,22 +2,22 @@ import React from 'react'
 import randomColour from '../colour-gen'
 
 const Function = ({ object, array, func }) => {
-  return <div style={{ backgroundColor: randomColour() }}>ComplexProps - Function</div>
+  return <div style={{ backgroundColor: randomColour() }}><div>ComplexProps -  Function</div></div>
 }
 
 const Memo = React.memo(({ object, array, func }) => {
-  return <div style={{ backgroundColor: randomColour() }}>ComplexProps - Memo</div>
+  return <div style={{ backgroundColor: randomColour() }}><div>ComplexProps -  Memo</div></div>
 })
 
 class Component extends React.Component {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}>ComplexProps - Component</div>
+    return <div style={{ backgroundColor: randomColour() }}><div>Component</div></div>
   }
 }
 
 class PureComponent extends React.PureComponent {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}>ComplexProps - PureComponent</div>
+    return <div style={{ backgroundColor: randomColour() }}><div>ComplexProps -  PureComponent</div></div>
   }
 }
 
@@ -34,11 +34,11 @@ export default () => {
     }
   }, [increment])
   return (
-    <div>
+    <React.Fragment>
       <Function object={{ key: 'value' }} array={[]} func={() => {}} />
       <Memo object={{ key: 'value' }} array={[]} func={() => {}} />
       <Component object={{ key: 'value' }} array={[]} func={() => {}} />
       <PureComponent object={{ key: 'value' }} array={[]} func={() => {}} />
-    </div>
+    </React.Fragment>
   )
 }

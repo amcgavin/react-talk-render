@@ -2,21 +2,21 @@ import React from 'react'
 import randomColour from '../colour-gen'
 
 export const Function = () => {
-  return <div style={{ backgroundColor: randomColour() }}>NestedChildren - Function</div>
+  return <div style={{ backgroundColor: randomColour() }}><div>NestedChildren -  Function</div></div>
 }
 
 export const Memo = React.memo(() => {
-  return <div style={{ backgroundColor: randomColour() }}>NestedChildren - Memo</div>
+  return <div style={{ backgroundColor: randomColour() }}><div>NestedChildren -  Memo</div></div>
 })
 
 export class Component extends React.Component {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}>NestedChildren - Component</div>
+    return <div style={{ backgroundColor: randomColour() }}><div>Component</div></div>
   }
 }
 export class PureComponent extends React.PureComponent {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}>NestedChildren - PureComponent</div>
+    return <div style={{ backgroundColor: randomColour() }}><div>NestedChildren -  PureComponent</div></div>
   }
 }
 
@@ -35,7 +35,7 @@ export default () => {
     }
   }, [increment])
   return (
-    <div>
+    <React.Fragment>
       <Nester component={Function}>
         <div />
       </Nester>
@@ -48,6 +48,6 @@ export default () => {
       <Nester component={PureComponent}>
         <div />
       </Nester>
-    </div>
+    </React.Fragment>
   )
 }

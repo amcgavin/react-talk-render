@@ -2,21 +2,21 @@ import React from 'react'
 import randomColour from '../colour-gen'
 
 export const Function = () => {
-  return <div style={{ backgroundColor: randomColour() }}>RenderProps4 - Function</div>
+  return <div style={{ backgroundColor: randomColour() }}><div>RenderProps4 -  Function</div></div>
 }
 
 export const Memo = React.memo(() => {
-  return <div style={{ backgroundColor: randomColour() }}>RenderProps4 - Memo</div>
+  return <div style={{ backgroundColor: randomColour() }}><div>RenderProps4 -  Memo</div></div>
 })
 
 export class Component extends React.Component {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}>RenderProps4 - Component</div>
+    return <div style={{ backgroundColor: randomColour() }}><div>Component</div></div>
   }
 }
 export class PureComponent extends React.PureComponent {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}>RenderProps4 - PureComponent</div>
+    return <div style={{ backgroundColor: randomColour() }}><div>RenderProps4 -  PureComponent</div></div>
   }
 }
 
@@ -41,11 +41,11 @@ export default () => {
   const component = React.useCallback(() => <Component />, [])
   const pureComponent = React.useCallback(() => <PureComponent />, [])
   return (
-    <div>
+    <React.Fragment>
       <Renderer render={fn} />
       <Renderer render={memo} />
       <Renderer render={component} />
       <Renderer render={pureComponent} />
-    </div>
+    </React.Fragment>
   )
 }

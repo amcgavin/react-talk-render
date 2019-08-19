@@ -1,27 +1,14 @@
 import React from 'react'
-import { Provider, useDispatch, useSelector } from 'react-redux'
+import { connect, Provider, useDispatch, useSelector } from 'react-redux'
 import randomColour from '../colour-gen'
 import { createStore } from 'redux'
 
-const Function = () => {
-  return <div style={{ backgroundColor: randomColour() }}><div>Redux -  Function</div></div>
+const UnconnectedFunction = () => {
+  const otherProp = useSelector(state => state.otherProp)
+  return <div style={{ backgroundColor: randomColour() }}><div>Redux2 -  Function</div></div>
 }
 
-const Memo = React.memo(() => {
-  return <div style={{ backgroundColor: randomColour() }}><div>Redux -  Memo</div></div>
-})
-
-class Component extends React.Component {
-  render() {
-    return <div style={{ backgroundColor: randomColour() }}><div>Component</div></div>
-  }
-}
-
-class PureComponent extends React.PureComponent {
-  render() {
-    return <div style={{ backgroundColor: randomColour() }}><div>Redux -  PureComponent</div></div>
-  }
-}
+const Function = connect(state => ({ otherProp: state.otherProp }))(UnconnectedFunction)
 
 const initialState = {
   count: 0,
@@ -40,6 +27,7 @@ const reduxStore = createStore((state = initialState, action) => {
 const Main = () => {
   const dispatch = useDispatch()
   useSelector(state => state.count)
+
   React.useEffect(() => {
     const interval = setInterval(() => {
       dispatch({ type: 'count' })
@@ -52,9 +40,6 @@ const Main = () => {
   return (
     <React.Fragment>
       <Function />
-      <Memo />
-      <Component />
-      <PureComponent />
     </React.Fragment>
   )
 }
