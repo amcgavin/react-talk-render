@@ -8,7 +8,13 @@ import renderprops from './renderprops'
 import CodeView from './CodeView'
 
 function App() {
-  return <CodeView src={singular.ComplexPropsSrc} />
+  return (
+    <div className="wrapper">
+      <div className="code-viewer">
+        <CodeView src={redux.Redux2Src} />
+      </div>
+    </div>
+  )
 }
 
 export default App
