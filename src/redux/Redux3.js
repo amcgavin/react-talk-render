@@ -5,7 +5,11 @@ import { createStore } from 'redux'
 
 const UnconnectedFunction = () => {
   const otherProp = useSelector(state => state.otherProp)
-  return <div style={{ backgroundColor: randomColour() }}><div>Redux2 -  Function</div></div>
+  return (
+    <div style={{ backgroundColor: randomColour() }}>
+      <div>Function</div>
+    </div>
+  )
 }
 
 const Function = connect(state => ({ otherProp: state.otherProp }))(UnconnectedFunction)

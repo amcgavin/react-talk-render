@@ -15,10 +15,12 @@ function App() {
           <CodeView src={Redux.Redux2Src} />
         </div>
       </div>
-      <div>
-      <div className="example-wrapper">
-        <Redux.Redux2 />
-      </div>
+      <div className="grid-center">
+        <div></div>
+        <div className="example-wrapper">
+          <Redux.Redux2 />
+        </div>
+        <div></div>
       </div>
     </React.Fragment>
   )

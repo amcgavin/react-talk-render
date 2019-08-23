@@ -2,22 +2,38 @@ import React from 'react'
 import randomColour from '../colour-gen'
 
 const Function = ({ func }) => {
-  return <div style={{ backgroundColor: randomColour() }}><div>Functions -  Function</div></div>
+  return (
+    <div style={{ backgroundColor: randomColour() }}>
+      <div>Function</div>
+    </div>
+  )
 }
 
 const Memo = React.memo(({ func }) => {
-  return <div style={{ backgroundColor: randomColour() }}><div>Functions -  Memo</div></div>
+  return (
+    <div style={{ backgroundColor: randomColour() }}>
+      <div>Memo</div>
+    </div>
+  )
 })
 
 class Component extends React.Component {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}><div>Component</div></div>
+    return (
+      <div style={{ backgroundColor: randomColour() }}>
+        <div>Component</div>
+      </div>
+    )
   }
 }
 
 class PureComponent extends React.PureComponent {
   render() {
-    return <div style={{ backgroundColor: randomColour() }}><div>Functions -  PureComponent</div></div>
+    return (
+      <div style={{ backgroundColor: randomColour() }}>
+        <div>PureComponent</div>
+      </div>
+    )
   }
 }
 
