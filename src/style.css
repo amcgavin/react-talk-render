@@ -12,10 +12,12 @@ body {
 }
 
 .example-wrapper {
-    display: grid;
-    grid-template-columns: 30% 30%;
-    grid-column-gap: 25px;
+    display: inline-grid;
+    grid-template-columns: calc(50% - 13px) calc(50% - 13px);
+    grid-column-gap: 26px;
     grid-row-gap: 25px;
+    width: 100%;
+
 }
 
 .example-wrapper > div {
@@ -35,5 +37,13 @@ body {
 
 .example-wrapper > div > div {
     margin: auto 0;
+}
+
+.grid-center {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
+    align-items: center;
+
 }
 

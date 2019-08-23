@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import RenderPropsSrc from '!!raw-loader!./RenderProps.js'
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import RenderPropsSrc2 from '!!raw-loader!./RenderProps2.js'
+import RenderProps2Src from '!!raw-loader!./RenderProps2.js'
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import RenderPropsSrc3 from '!!raw-loader!./RenderProps3.js'
+import RenderProps3Src from '!!raw-loader!./RenderProps3.js'
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import RenderPropsSrc4 from '!!raw-loader!./RenderProps4.js'
+import RenderProps4Src from '!!raw-loader!./RenderProps4.js'
 
 import RenderProps from './RenderProps'
 import RenderProps2 from './RenderProps2'
@@ -18,7 +18,7 @@ export default {
   RenderProps3,
   RenderProps4,
   RenderPropsSrc,
-  RenderPropsSrc2,
-  RenderPropsSrc3,
-  RenderPropsSrc4,
+  RenderProps2Src,
+  RenderProps3Src,
+  RenderProps4Src,
 }

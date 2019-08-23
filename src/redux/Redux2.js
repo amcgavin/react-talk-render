@@ -3,16 +3,8 @@ import { connect, Provider, useDispatch, useSelector } from 'react-redux'
 import randomColour from '../colour-gen'
 import { createStore } from 'redux'
 
-const counts = {
-  Function: 0,
-  Memo: 0,
-  Component: 0,
-  PureComponent: 0,
-}
-
 const Function = () => {
   const otherProp = useSelector(state => state.otherProp)
-  counts.Function += 1
   return (
     <div style={{ backgroundColor: randomColour() }}>
       <div>Function</div>
