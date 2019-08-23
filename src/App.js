@@ -53,19 +53,20 @@ function App() {
   const { src, component: Component, title } = path[step]
   return (
     <React.Fragment>
-      <div className="wrapper">
-        <Navigation next={increment} previous={decrement} title={title} />
-        <div className="code-viewer">
-          <CodeView src={src} />
-        </div>
-      </div>
       <div className="grid-center">
         <div></div>
-        <div className="example-wrapper">
-          <Component />
+        <div>
+          <Navigation next={increment} previous={decrement} title={title} />
+          <div className="code-viewer">
+            <CodeView src={src} />
+          </div>
+          <div className="example-wrapper">
+            <Component />
+          </div>
+          <Navigation next={increment} previous={decrement} title={title} />
         </div>
-        <div></div>
       </div>
+      <div></div>
     </React.Fragment>
   )
 }

@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #444444;
+    background: rgb(43, 34, 42);
 }
 
 .example-wrapper {
@@ -37,6 +37,7 @@ body {
 
 .example-wrapper > div > div {
     margin: auto 0;
+    padding: 25%;
 }
 
 .grid-center {
@@ -44,6 +45,28 @@ body {
     grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
     align-items: center;
-
 }
 
+.navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation button {
+    height: 40px;
+    width: 100px;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 3px;
+    background-color: rgb(43, 34, 42);
+    filter: brightness(200%);
+    color: white;
+}
+
+.navigation h2 {
+    font-family: sans-serif;
+    color: white;
+    align-self: center;
+}
