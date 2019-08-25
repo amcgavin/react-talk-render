@@ -1,9 +1,32 @@
 import React from 'react'
 
-export default React.memo(({ title, next, previous }) => (
-  <div className="navigation">
-    <button onClick={previous}>Back</button>
-    <h2>{title}</h2>
-    <button onClick={next}>Next</button>
-  </div>
-))
+export default React.memo(({ start, next, previous }) => {
+  React.useEffect(() => {
+    const handler = event => {
+      let handled = true
+      switch (event.keyCode) {
+        case 39: // right
+          next()
+          break
+        case 37: // left
+          previous()
+          break
+        case 32: // space
+          start()
+          break
+        default:
+          handled = false
+      }
+      if (handled) {
+        event.stopPropagation()
+        event.preventDefault()
+      }
+      console.log(event.keyCode)
+    }
+    document.addEventListener('keydown', handler)
+    return () => {
+      document.removeEventListener('keydown', handler)
+    }
+  }, [next, previous, start])
+  return null
+})

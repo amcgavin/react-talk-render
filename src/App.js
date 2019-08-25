@@ -9,6 +9,8 @@ import CodeView from './controls/CodeView'
 import Navigation from './controls/Navigation'
 
 const path = [
+  { src: Children.ChildrenNonJSXSrc, component: Children.ChildrenNonJSX, title: 'ChildrenNonJSX' },
+
   { src: Singular.ComplexPropsSrc, component: Singular.ComplexProps, title: 'Complex Props' },
   {
     src: Singular.SimplePropsSrc,
@@ -41,32 +43,48 @@ const path = [
   { src: Redux.Redux3Src, component: Redux.Redux3, title: 'Redux 3' },
 ]
 
+const reducer = (state, action) => {
+  const { step } = state
+  if (action === 'increment') return { step: step + 1, collapsed: false, start: false }
+  if (action === 'decrement') return { step: step - 1, collapsed: false, start: false }
+  if (action === 'collapse') return { ...state, collapsed: !state.collapsed }
+  if (action === 'start') return { ...state, start: !state.start }
+  return state
+}
+
 function App() {
-  const [step, dispatch] = React.useReducer((state, action) => {
-    if (action === 'increment') return ++state
-    if (action === 'decrement') return --state
-    return state
-  }, 0)
+  const [state, dispatch] = React.useReducer(reducer, { step: 0, collapsed: false, start: false })
   const increment = React.useCallback(() => dispatch('increment'), [dispatch])
   const decrement = React.useCallback(() => dispatch('decrement'), [dispatch])
+  const toggleCollapse = React.useCallback(() => dispatch('collapse'), [dispatch])
+  const startSim = React.useCallback(() => dispatch('start'), [dispatch])
 
+  const { step, collapsed, start } = state
   const { src, component: Component, title } = path[step]
   return (
     <React.Fragment>
-      <div className="grid-center">
-        <div></div>
-        <div>
-          <Navigation next={increment} previous={decrement} title={title} />
-          <div className="code-viewer">
-            <CodeView src={src} />
+      <div className={start ? 'dark' : ''}>
+        <div className="grid-center">
+          <div></div>
+          <div>
+            <Navigation next={increment} previous={decrement} start={startSim} />
+            <div className="code-viewer">
+              <button className="code-collapse" onClick={toggleCollapse}>
+                {collapsed ? '+' : '-'}
+              </button>
+              <CodeView showLineNumbers src={collapsed ? '' : src} />
+            </div>
           </div>
+        </div>
+        <div></div>
+      </div>
+      {start && (
+        <div className="example-modal">
           <div className="example-wrapper">
             <Component />
           </div>
-          <Navigation next={increment} previous={decrement} title={title} />
         </div>
-      </div>
-      <div></div>
+      )}
     </React.Fragment>
   )
 }
