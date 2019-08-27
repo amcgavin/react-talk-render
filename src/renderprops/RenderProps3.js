@@ -52,12 +52,17 @@ export default () => {
       clearInterval(interval)
     }
   }, [increment])
+
+  const func = React.useCallback(() => <Function />, [])
+  const memo = React.useCallback(() => <Memo />, [])
+  const component = React.useCallback(() => <Component />, [])
+  const pureComponent = React.useCallback(() => <PureComponent />, [])
   return (
     <React.Fragment>
-      <Renderer render={() => <Function />} />
-      <Renderer render={() => <Memo />} />
-      <Renderer render={() => <Component />} />
-      <Renderer render={() => <PureComponent />} />
+      <Renderer render={func} />
+      <Renderer render={memo} />
+      <Renderer render={component} />
+      <Renderer render={pureComponent} />
     </React.Fragment>
   )
 }

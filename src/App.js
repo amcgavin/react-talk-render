@@ -9,8 +9,6 @@ import CodeView from './controls/CodeView'
 import Navigation from './controls/Navigation'
 
 const path = [
-  { src: Children.ChildrenNonJSXSrc, component: Children.ChildrenNonJSX, title: 'ChildrenNonJSX' },
-
   { src: Singular.ComplexPropsSrc, component: Singular.ComplexProps, title: 'Complex Props' },
   {
     src: Singular.SimplePropsSrc,
@@ -21,6 +19,8 @@ const path = [
   { src: Singular.FunctionsSrc, component: Singular.Functions, title: 'Functions' },
   { src: Singular.UseCallbackSrc, component: Singular.UseCallback, title: 'Use Callback' },
   { src: Children.ChildrenSrc, component: Children.Children, title: 'Children' },
+  { src: Children.ChildrenNonJSXSrc, component: Children.ChildrenNonJSX, title: 'ChildrenNonJSX' },
+
   { src: Children.NestedChildrenSrc, component: Children.NestedChildren, title: 'Nested Children' },
   { src: Renderprops.RenderPropsSrc, component: Renderprops.RenderProps, title: 'Render Props' },
   {
@@ -30,12 +30,12 @@ const path = [
   },
   {
     src: Renderprops.RenderProps3Src,
-    component: Renderprops.RenderProps2,
+    component: Renderprops.RenderProps3,
     title: 'Render Props 3',
   },
   {
     src: Renderprops.RenderProps4Src,
-    component: Renderprops.RenderProps2,
+    component: Renderprops.RenderProps4,
     title: 'Render Props 4',
   },
   { src: Redux.ReduxSrc, component: Redux.Redux, title: 'Redux' },
@@ -45,8 +45,9 @@ const path = [
 
 const reducer = (state, action) => {
   const { step } = state
-  if (action === 'increment') return { step: step + 1, collapsed: false, start: false }
-  if (action === 'decrement') return { step: step - 1, collapsed: false, start: false }
+  if (action === 'increment')
+    return { step: Math.min(path.length - 1, step + 1), collapsed: false, start: false }
+  if (action === 'decrement') return { step: Math.max(0, step - 1), collapsed: false, start: false }
   if (action === 'collapse') return { ...state, collapsed: !state.collapsed }
   if (action === 'start') return { ...state, start: !state.start }
   return state

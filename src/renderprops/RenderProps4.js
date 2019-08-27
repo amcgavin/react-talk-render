@@ -1,46 +1,33 @@
 import React from 'react'
 import randomColour from '../colour-gen'
 
-export const Function = () => {
+export const Memo = React.memo(({ text }) => {
   return (
     <div style={{ backgroundColor: randomColour() }}>
-      <div>Function</div>
-    </div>
-  )
-}
-
-export const Memo = React.memo(() => {
-  return (
-    <div style={{ backgroundColor: randomColour() }}>
-      <div>Memo</div>
+      <div>{text}</div>
     </div>
   )
 })
 
-export class Component extends React.Component {
-  render() {
-    return (
-      <div style={{ backgroundColor: randomColour() }}>
-        <div>Component</div>
-      </div>
-    )
-  }
-}
-export class PureComponent extends React.PureComponent {
-  render() {
-    return (
-      <div style={{ backgroundColor: randomColour() }}>
-        <div>PureComponent</div>
-      </div>
-    )
-  }
-}
-
 const reducer = state => state + 1
 
-const Renderer = React.memo(({ render }) => (
-  <div style={{ backgroundColor: randomColour() }}>{render()}</div>
-))
+const Renderer = React.memo(({ render }) => {
+  const [text, dispatch] = React.useReducer((state, action) => {
+    console.log('Key pressed!')
+    if (action < 10) return state
+    return state + String.fromCharCode(action)
+  }, '')
+  React.useEffect(() => {
+    const handler = event => {
+      dispatch(event.keyCode)
+    }
+    document.addEventListener('keydown', handler)
+    return () => {
+      document.removeEventListener('keydown', handler)
+    }
+  }, [dispatch])
+  return <div style={{ backgroundColor: randomColour() }}>{render(text)}</div>
+})
 
 export default () => {
   const [count, increment] = React.useReducer(reducer, 0)
@@ -52,16 +39,10 @@ export default () => {
       clearInterval(interval)
     }
   }, [increment])
-  const fn = React.useCallback(() => <Function />, [])
-  const memo = React.useCallback(() => <Memo />, [])
-  const component = React.useCallback(() => <Component />, [])
-  const pureComponent = React.useCallback(() => <PureComponent />, [])
+  const fn = React.useCallback(text => <Memo text={text} />, [])
   return (
     <React.Fragment>
       <Renderer render={fn} />
-      <Renderer render={memo} />
-      <Renderer render={component} />
-      <Renderer render={pureComponent} />
     </React.Fragment>
   )
 }

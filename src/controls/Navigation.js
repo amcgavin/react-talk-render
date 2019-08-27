@@ -21,7 +21,6 @@ export default React.memo(({ start, next, previous }) => {
         event.stopPropagation()
         event.preventDefault()
       }
-      console.log(event.keyCode)
     }
     document.addEventListener('keydown', handler)
     return () => {
