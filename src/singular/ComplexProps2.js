@@ -51,10 +51,10 @@ export default () => {
   }, [increment])
   return (
     <React.Fragment>
-      <Function object={{ key: 'value' }} />
-      <Memo object={{ key: 'value' }} />
-      <Component object={{ key: 'value' }} />
-      <PureComponent object={{ key: 'value' }} />
+      <Function array={[]} />
+      <Memo array={[]} />
+      <Component array={[]} />
+      <PureComponent array={[]} />
     </React.Fragment>
   )
 }

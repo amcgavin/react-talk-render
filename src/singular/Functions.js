@@ -50,6 +50,7 @@ export default () => {
     }
   }, [increment])
   const func = () => {}
+
   return (
     <React.Fragment>
       <Function func={func} />

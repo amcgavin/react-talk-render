@@ -10,6 +10,8 @@ import Navigation from './controls/Navigation'
 
 const path = [
   { src: Singular.ComplexPropsSrc, component: Singular.ComplexProps, title: 'Complex Props' },
+  { src: Singular.ComplexPropsSrc2, component: Singular.ComplexProps2, title: 'Complex Props 2' },
+  { src: Singular.ComplexPropsSrc3, component: Singular.ComplexProps3, title: 'Complex Props 3' },
   {
     src: Singular.SimplePropsSrc,
     component: Singular.SimpleProps,
