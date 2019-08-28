@@ -1,7 +1,7 @@
 import React from 'react'
 import randomColour from '../colour-gen'
 import useRerender from '../useRerender'
-export const Memo = React.memo(({ text }) => {
+const Memo = React.memo(({ text }) => {
   return (
     <div style={{ backgroundColor: randomColour() }}>
       <div>{text}</div>

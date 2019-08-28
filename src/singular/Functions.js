@@ -39,14 +39,16 @@ class PureComponent extends React.PureComponent {
 
 export default () => {
   useRerender()
-  const func = () => {}
+  const onClick = event => {
+    // do something
+  }
 
   return (
     <React.Fragment>
-      <Function func={func} />
-      <Memo func={func} />
-      <Component func={func} />
-      <PureComponent func={func} />
+      <Function func={onClick} />
+      <Memo func={onClick} />
+      <Component func={onClick} />
+      <PureComponent func={onClick} />
     </React.Fragment>
   )
 }

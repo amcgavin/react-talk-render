@@ -39,6 +39,9 @@ class PureComponent extends React.PureComponent {
 
 export default () => {
   useRerender()
+  // const lhs = {a: 1}
+  // const rhs = {a: 1}
+  // lhs === rhs ?
   return (
     <React.Fragment>
       <Function object={{ key: 'value' }} />

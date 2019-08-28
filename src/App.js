@@ -5,6 +5,7 @@ import Redux from './redux'
 import Children from './children'
 import Renderprops from './renderprops'
 import Introduction from './intro'
+import Performance from './performance'
 
 import CodeView from './controls/CodeView'
 import Navigation from './controls/Navigation'
@@ -26,6 +27,9 @@ const path = [
   { src: Singular.UseCallbackSrc, component: Singular.UseCallback, title: 'Use Callback' },
   { src: Children.ChildrenSrc, component: Children.Children, title: 'Children' },
   { src: Children.ChildrenNonJSXSrc, component: Children.ChildrenNonJSX, title: 'ChildrenNonJSX' },
+  { src: Performance.TicksSrc, component: Performance.Ticks, title: 'Ticks' },
+  { src: Performance.TicksMemoSrc, component: Performance.TicksMemo, title: 'Ticks Memo' },
+  { src: Performance.OnClickSrc, component: Performance.OnClick, title: 'On Click' },
 
   { src: Renderprops.RenderPropsSrc, component: Renderprops.RenderProps, title: 'Render Props' },
   {

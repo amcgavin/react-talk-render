@@ -9,7 +9,7 @@ const counts = {
   PureComponent: 0,
 }
 
-export const Function = () => {
+const Function = () => {
   counts.Function += 1
   return (
     <div style={{ backgroundColor: randomColour() }}>
@@ -18,7 +18,7 @@ export const Function = () => {
   )
 }
 
-export const Memo = React.memo(() => {
+const Memo = React.memo(() => {
   counts.Memo += 1
   return (
     <div style={{ backgroundColor: randomColour() }}>
@@ -27,7 +27,7 @@ export const Memo = React.memo(() => {
   )
 })
 
-export class Component extends React.Component {
+class Component extends React.Component {
   render() {
     counts.Component += 1
     return (
@@ -37,7 +37,7 @@ export class Component extends React.Component {
     )
   }
 }
-export class PureComponent extends React.PureComponent {
+class PureComponent extends React.PureComponent {
   render() {
     counts.PureComponent += 1
     return (

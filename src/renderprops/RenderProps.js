@@ -1,7 +1,7 @@
 import React from 'react'
 import randomColour from '../colour-gen'
 import useRerender from '../useRerender'
-export const Function = () => {
+const Function = () => {
   return (
     <div style={{ backgroundColor: randomColour() }}>
       <div>Function</div>
@@ -9,7 +9,7 @@ export const Function = () => {
   )
 }
 
-export const Memo = React.memo(() => {
+const Memo = React.memo(() => {
   return (
     <div style={{ backgroundColor: randomColour() }}>
       <div>Memo</div>
@@ -17,7 +17,7 @@ export const Memo = React.memo(() => {
   )
 })
 
-export class Component extends React.Component {
+class Component extends React.Component {
   render() {
     return (
       <div style={{ backgroundColor: randomColour() }}>
@@ -26,7 +26,7 @@ export class Component extends React.Component {
     )
   }
 }
-export class PureComponent extends React.PureComponent {
+class PureComponent extends React.PureComponent {
   render() {
     return (
       <div style={{ backgroundColor: randomColour() }}>
