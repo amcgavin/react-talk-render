@@ -1,36 +1,47 @@
 import React from 'react'
 import randomColour from '../colour-gen'
 
+const counts = {
+  Function: 0,
+  Memo: 0,
+  Component: 0,
+  PureComponent: 0,
+}
+
 export const Function = () => {
+  counts.Function += 1
   return (
     <div style={{ backgroundColor: randomColour() }}>
-      <div>Function</div>
+      <div>Function - {counts.Function}</div>
     </div>
   )
 }
 
 export const Memo = React.memo(() => {
+  counts.Memo += 1
   return (
     <div style={{ backgroundColor: randomColour() }}>
-      <div>Memo</div>
+      <div>Memo - {counts.Memo}</div>
     </div>
   )
 })
 
 export class Component extends React.Component {
   render() {
+    counts.Component += 1
     return (
       <div style={{ backgroundColor: randomColour() }}>
-        <div>Component</div>
+        <div>Component {counts.Component}</div>
       </div>
     )
   }
 }
 export class PureComponent extends React.PureComponent {
   render() {
+    counts.PureComponent += 1
     return (
       <div style={{ backgroundColor: randomColour() }}>
-        <div>PureComponent</div>
+        <div>PureComponent - {counts.PureComponent}</div>
       </div>
     )
   }
