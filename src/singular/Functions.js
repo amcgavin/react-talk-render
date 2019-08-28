@@ -1,6 +1,6 @@
 import React from 'react'
 import randomColour from '../colour-gen'
-
+import useRerender from '../useRerender'
 const Function = ({ func }) => {
   return (
     <div style={{ backgroundColor: randomColour() }}>
@@ -37,18 +37,8 @@ class PureComponent extends React.PureComponent {
   }
 }
 
-const reducer = state => state + 1
-
 export default () => {
-  const [count, increment] = React.useReducer(reducer, 0)
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      increment()
-    }, 1000)
-    return () => {
-      clearInterval(interval)
-    }
-  }, [increment])
+  useRerender()
   const func = () => {}
 
   return (

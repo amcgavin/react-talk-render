@@ -4,11 +4,15 @@ import Singular from './singular'
 import Redux from './redux'
 import Children from './children'
 import Renderprops from './renderprops'
+import Introduction from './intro'
 
 import CodeView from './controls/CodeView'
 import Navigation from './controls/Navigation'
 
 const path = [
+  { src: Introduction.IntroductionSrc, component: null, title: 'Introduction' },
+  { src: Introduction.randomColourSrc, component: null, title: 'Random Colour' },
+  { src: Introduction.useRerenderSrc, component: null, title: 'Use Rerender' },
   { src: Singular.ComplexPropsSrc, component: Singular.ComplexProps, title: 'Complex Props' },
   { src: Singular.ComplexPropsSrc2, component: Singular.ComplexProps2, title: 'Complex Props 2' },
   { src: Singular.ComplexPropsSrc3, component: Singular.ComplexProps3, title: 'Complex Props 3' },

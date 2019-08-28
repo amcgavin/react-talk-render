@@ -1,6 +1,6 @@
 import React from 'react'
 import randomColour from '../colour-gen'
-
+import useRerender from '../useRerender'
 export const Memo = React.memo(({ text }) => {
   return (
     <div style={{ backgroundColor: randomColour() }}>
@@ -8,8 +8,6 @@ export const Memo = React.memo(({ text }) => {
     </div>
   )
 })
-
-const reducer = state => state + 1
 
 const Renderer = ({ render }) => {
   const [text, dispatch] = React.useReducer((state, action) => {
@@ -30,15 +28,7 @@ const Renderer = ({ render }) => {
 }
 
 export default () => {
-  const [count, increment] = React.useReducer(reducer, 0)
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      increment()
-    }, 1000)
-    return () => {
-      clearInterval(interval)
-    }
-  }, [increment])
+  useRerender()
   const fn = React.useCallback(text => <Memo text={text} />, [])
   return (
     <React.Fragment>
