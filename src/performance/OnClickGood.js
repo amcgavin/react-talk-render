@@ -11,9 +11,9 @@ const Function = React.memo(({ childCount = 1000, onChange }) => {
 
 export default () => {
   const [value, setValue] = React.useState('')
-  const onChange = event => {
+  const onChange = React.useCallback(event => {
     setValue(event.target.value)
-  }
+  }, [setValue])
   return (
     <div style={{ backgroundColor: randomColour() }}>
       <Function childCount={10000} onChange={onChange} />

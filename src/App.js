@@ -30,6 +30,7 @@ const path = [
   { src: Performance.TicksSrc, component: Performance.Ticks, title: 'Ticks' },
   { src: Performance.TicksMemoSrc, component: Performance.TicksMemo, title: 'Ticks Memo' },
   { src: Performance.OnClickSrc, component: Performance.OnClick, title: 'On Click' },
+  { src: Performance.OnClickGoodSrc, component: Performance.OnClickGood, title: 'On Click Good' },
 
   { src: Renderprops.RenderPropsSrc, component: Renderprops.RenderProps, title: 'Render Props' },
   {
@@ -47,11 +48,7 @@ const path = [
     component: Renderprops.RenderProps4,
     title: 'Render Props 4',
   },
-  {
-    src: Renderprops.RenderProps5Src,
-    component: Renderprops.RenderProps5,
-    title: 'Render Props 5',
-  },
+
   { src: Redux.ReduxSrc, component: Redux.Redux, title: 'Redux' },
   { src: Redux.Redux2Src, component: Redux.Redux2, title: 'Redux 2' },
   { src: Redux.Redux4Src, component: Redux.Redux4, title: 'Redux 4' },
